@@ -44,4 +44,26 @@ describe('Thermostat', function(){
 		});
 
 	});
+
+	describe('extremes', function(){
+
+		it('has a minimum temperature of 10 degrees', function(){
+			expect(thermostat.minTemp).toEqual(10);
+		});
+
+		it('has a maximum temperature of 25 degrees in power saving mode', function(){
+			expect(thermostat.maxTemp).toEqual(25);
+		});
+
+		it('can turn power saving mode off', function(){
+			thermostat.turnPowerSaverOff();
+			expect(thermostat.isPowerSaverOn).toBe(false);
+		});
+
+		it('has a maximum temperature of 32 degrees when power saver is off', function(){
+			thermostat.turnPowerSaverOff();
+			expect(thermostat.maxTemp).toEqual(32);
+		});
+
+	});
 });
