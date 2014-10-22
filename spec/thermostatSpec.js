@@ -34,8 +34,8 @@ describe('Thermostat', function(){
 	describe('custom options', function(){
 
 		it('can increase the temperature by 12', function(){
-			thermostat.increaseTemperatureBy(12);
-			expect(thermostat.temperature).toEqual(32);
+			thermostat.increaseTemperatureBy(5);
+			expect(thermostat.temperature).toEqual(25);
 		});
 
 		it('can decrease the temperature by 5', function(){
@@ -69,6 +69,25 @@ describe('Thermostat', function(){
 		it('has a maximum temperature of 32 degrees when power saver is off', function(){
 			thermostat.turnPowerSaverOff();
 			expect(thermostat.maxTemp).toEqual(32);
+		});
+
+		it('cannot be set below its minimum temperature', function(){
+			expect(thermostat.decreaseTemperatureBy(11)).toEqual('Cannot set below 10 degrees.');
+		});
+
+		it('cannot be set above 25 degrees in power saver mode', function(){
+			expect(thermostat.increaseTemperatureBy(6)).toEqual('Cannot set above 25 degrees.');
+		});
+
+		it('can increase temperature up to 32 degrees when power saver is off', function(){
+			thermostat.turnPowerSaverOff();
+			thermostat.increaseTemperatureBy(12);
+			expect(thermostat.temperature).toEqual(32);
+		});
+
+		it('cannot be set above 32 degrees when power saver mode is off', function(){
+			thermostat.turnPowerSaverOff();
+			expect(thermostat.increaseTemperatureBy(13)).toEqual('Cannot set above 32 degrees.')
 		});
 
 	});

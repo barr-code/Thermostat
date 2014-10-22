@@ -10,7 +10,8 @@ Thermostat.prototype.increaseTemperature = function() {
 };
 
 Thermostat.prototype.increaseTemperatureBy = function(degrees) {
-	this.temperature += degrees;
+	if(this.temperature + degrees <= this.maxTemp) this.temperature += degrees;
+	else return 'Cannot set above ' + this.maxTemp + ' degrees.';
 };
 
 Thermostat.prototype.decreaseTemperature = function() {
@@ -18,7 +19,8 @@ Thermostat.prototype.decreaseTemperature = function() {
 };
 
 Thermostat.prototype.decreaseTemperatureBy = function(degrees) {
-	this.temperature -= degrees;
+	if(this.temperature - degrees >= this.minTemp) this.temperature -= degrees;
+	else return 'Cannot set below 10 degrees.';
 };
 
 Thermostat.prototype.turnPowerSaverOff = function() {
