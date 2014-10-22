@@ -43,6 +43,12 @@ describe('Thermostat', function(){
 			expect(thermostat.temperature).toEqual(15);
 		});
 
+		it('has a reset that reverts temperature to 20 degrees', function(){
+			thermostat.decreaseTemperatureBy(8);
+			thermostat.reset();
+			expect(thermostat.temperature).toEqual(20);
+		});
+
 	});
 
 	describe('extremes', function(){
