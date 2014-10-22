@@ -10,4 +10,8 @@ $(document).ready(function(){
 		thermostat.decreaseTemperature();
 		$('#temperature').text((thermostat.temperature) + '°');
 	});
+
+	$('#powersaver').on('click', function(){
+		$('#powerstatus').text(thermostat.powerSaverSwitch());
+	});
 });

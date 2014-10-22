@@ -36,9 +36,17 @@ Thermostat.prototype.decreaseTemperatureBy = function(degrees) {
 		return 'Cannot set below 10 degrees.'};
 };
 
-Thermostat.prototype.turnPowerSaverOff = function() {
-	this.isPowerSaverOn = false;
-	this.maxTemp = 32;
+Thermostat.prototype.powerSaverSwitch = function() {
+	if(this.isPowerSaverOn === true) {
+		this.isPowerSaverOn = false;
+		this.maxTemp = 32;
+		return 'Power Saver Off';}
+	if(this.isPowerSaverOn === false) {
+		this.isPowerSaverOn = true;
+		this.maxTemp = 25;
+		this.temperature = 25;
+		return 'Power Saver On';
+	}
 };
 
 Thermostat.prototype.reset = function() {

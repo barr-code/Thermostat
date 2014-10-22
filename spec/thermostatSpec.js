@@ -62,12 +62,12 @@ describe('Thermostat', function(){
 		});
 
 		it('can turn power saving mode off', function(){
-			thermostat.turnPowerSaverOff();
+			thermostat.powerSaverSwitch();
 			expect(thermostat.isPowerSaverOn).toBe(false);
 		});
 
 		it('has a maximum temperature of 32 degrees when power saver is off', function(){
-			thermostat.turnPowerSaverOff();
+			thermostat.powerSaverSwitch();
 			expect(thermostat.maxTemp).toEqual(32);
 		});
 
@@ -80,14 +80,14 @@ describe('Thermostat', function(){
 		});
 
 		it('can increase temperature up to 32 degrees when power saver is off', function(){
-			thermostat.turnPowerSaverOff();
+			thermostat.powerSaverSwitch();
 			thermostat.increaseTemperatureBy(12);
 
 			expect(thermostat.temperature).toEqual(32);
 		});
 
 		it('cannot be set above 32 degrees when power saver mode is off', function(){
-			thermostat.turnPowerSaverOff();
+			thermostat.powerSaverSwitch();
 			expect(thermostat.increaseTemperatureBy(13)).toEqual('Cannot set above 32 degrees.')
 		});
 
