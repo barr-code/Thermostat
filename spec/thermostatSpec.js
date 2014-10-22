@@ -82,6 +82,7 @@ describe('Thermostat', function(){
 		it('can increase temperature up to 32 degrees when power saver is off', function(){
 			thermostat.turnPowerSaverOff();
 			thermostat.increaseTemperatureBy(12);
+
 			expect(thermostat.temperature).toEqual(32);
 		});
 
@@ -90,5 +91,27 @@ describe('Thermostat', function(){
 			expect(thermostat.increaseTemperatureBy(13)).toEqual('Cannot set above 32 degrees.')
 		});
 
+	});
+
+	describe('colors', function(){
+
+		it('is yellow by default', function(){
+			expect(thermostat.color).toEqual('purple')
+		});
+
+		it('can change color', function(){
+			thermostat.changeColor('black');
+			expect(thermostat.color).toEqual('black');
+		});
+
+		it('changes to red when temp is above 25', function(){
+			thermostat.increaseTemperatureBy(5)
+			expect(thermostat.color).toEqual('red');
+		});
+
+		it('changes to blue when temp is below 18', function(){
+			thermostat.decreaseTemperatureBy(5)
+			expect(thermostat.color).toEqual('blue');
+		});
 	});
 });

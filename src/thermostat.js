@@ -3,6 +3,7 @@ function Thermostat(){
 	this.isPowerSaverOn = true;
 	this.minTemp = 10;
 	this.maxTemp = 25;
+	this.color = 'purple'
 };
 
 Thermostat.prototype.increaseTemperature = function() {
@@ -10,8 +11,14 @@ Thermostat.prototype.increaseTemperature = function() {
 };
 
 Thermostat.prototype.increaseTemperatureBy = function(degrees) {
-	if(this.temperature + degrees <= this.maxTemp) this.temperature += degrees;
-	else return 'Cannot set above ' + this.maxTemp + ' degrees.';
+	if(this.temperature + degrees <= this.maxTemp) {
+		if(this.temperature + degrees >= 25) { 
+			this.changeColor('red');
+			}
+		this.temperature += degrees;
+		}
+	else { 
+		return 'Cannot set above ' + this.maxTemp + ' degrees.'};
 };
 
 Thermostat.prototype.decreaseTemperature = function() {
@@ -19,8 +26,14 @@ Thermostat.prototype.decreaseTemperature = function() {
 };
 
 Thermostat.prototype.decreaseTemperatureBy = function(degrees) {
-	if(this.temperature - degrees >= this.minTemp) this.temperature -= degrees;
-	else return 'Cannot set below 10 degrees.';
+	if(this.temperature - degrees >= this.minTemp) {
+		if(this.temperature - degrees <= 18) { 
+			this.changeColor('blue');
+			}
+		this.temperature -= degrees;
+		}
+	else {
+		return 'Cannot set below 10 degrees.'};
 };
 
 Thermostat.prototype.turnPowerSaverOff = function() {
@@ -30,4 +43,8 @@ Thermostat.prototype.turnPowerSaverOff = function() {
 
 Thermostat.prototype.reset = function() {
 	this.temperature = 20;
+};
+
+Thermostat.prototype.changeColor = function(color) {
+	this.color = color;
 };
