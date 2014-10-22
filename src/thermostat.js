@@ -15,7 +15,7 @@ Thermostat.prototype.increaseTemperatureBy = function(degrees) {
 		if(this.temperature + degrees >= 25) { 
 			this.changeColor('red');
 			}
-		this.temperature += degrees;
+		return this.temperature += degrees;
 		}
 	else { 
 		return 'Cannot set above ' + this.maxTemp + ' degrees.'};
