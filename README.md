@@ -1,0 +1,1 @@
+Makers Academy, week 6. Building a thermostat program in JavaScript. Testing done in Jasmine. JQuery and CSS to make it pretty.
