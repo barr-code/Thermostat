@@ -4,7 +4,7 @@ body {
 
 h1{
 	color: white;
-	font-family: 'Story Book';
+	font-family: 'CookieMonster';
 	text-align: center;
 	font-weight: 100;
 	font-size: 500%
@@ -30,15 +30,15 @@ section{
 }
 
 h2 {
-	font-family: 'Story Book';
+	font-family: 'CookieMonster';
 	text-align: center;
-	color: lime;
+	color: blue;
 	font-size: 500%;
 }
 
 h3 {
 	color: white;
 	text-align: center;
-	font-family: 'Story Book';
+	font-family: 'CookieMonster';
 	font-size: 250%;
 }
