@@ -3,7 +3,6 @@ function Thermostat(){
 	this.isPowerSaverOn = true;
 	this.minTemp = 10;
 	this.maxTemp = 25;
-	this.color = 'purple'
 };
 
 Thermostat.prototype.increaseTemperature = function() {
@@ -12,9 +11,6 @@ Thermostat.prototype.increaseTemperature = function() {
 
 Thermostat.prototype.increaseTemperatureBy = function(degrees) {
 	if(this.temperature + degrees <= this.maxTemp) {
-		if(this.temperature + degrees >= 25) { 
-			this.changeColor('red');
-			}
 		return this.temperature += degrees;
 		}
 	else { 
@@ -27,9 +23,6 @@ Thermostat.prototype.decreaseTemperature = function() {
 
 Thermostat.prototype.decreaseTemperatureBy = function(degrees) {
 	if(this.temperature - degrees >= this.minTemp) {
-		if(this.temperature - degrees <= 18) { 
-			this.changeColor('blue');
-			}
 		return this.temperature -= degrees;
 		}
 	else {
