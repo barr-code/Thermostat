@@ -9,14 +9,20 @@ function ThermoView(element) {
 ThermoView.prototype.connect = function(selector, recipient, func) {
 	$(selector).on('click', function (){
 		$('#temperature').text(func.call(recipient));
+		if(parseInt($('#temperature').text()) <= 18) $('body').css('background-color', 'blue');
+		else if(parseInt($('#temperature').text()) < 25) $('body').css('background-color', 'purple');
+		else $('body').css('background-color', 'red');
 	});
 };
 
 $(document).ready(function(){
-	new ThermoView('#temperature');
+	$.getJSON('/weather', function(data){
+		$('#outdoorTemp').text('Temp Outside:' + data['weather']['curren_weather'][0]['temp']);
+	});
+	var thermoview = new ThermoView('#temperature');
 
-	// $('#powersaver').on('click', function(){
-	// 	$('#powerstatus').text(thermostat.powerSaverSwitch());
-	// 	$('#temperature').text((thermostat.temperature) + '°');
-	// });
+	$('#powersaver').on('click', function(){
+		$('#powerstatus').text(thermoview.thermostat.powerSaverSwitch());
+		$('#temperature').text((thermoview.thermostat.temperature));
+	});
 });

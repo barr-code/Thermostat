@@ -1,5 +1,5 @@
 body {
-	background-color: black;
+	background-color: purple;
 }
 
 h1{
@@ -32,7 +32,7 @@ section{
 h2 {
 	font-family: 'CookieMonster';
 	text-align: center;
-	color: blue;
+	color: white;
 	font-size: 500%;
 }
 

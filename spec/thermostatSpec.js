@@ -93,25 +93,4 @@ describe('Thermostat', function(){
 
 	});
 
-	describe('colors', function(){
-
-		it('is yellow by default', function(){
-			expect(thermostat.color).toEqual('purple')
-		});
-
-		it('can change color', function(){
-			thermostat.changeColor('black');
-			expect(thermostat.color).toEqual('black');
-		});
-
-		it('changes to red when temp is above 25', function(){
-			thermostat.increaseTemperatureBy(5)
-			expect(thermostat.color).toEqual('red');
-		});
-
-		it('changes to blue when temp is below 18', function(){
-			thermostat.decreaseTemperatureBy(5)
-			expect(thermostat.color).toEqual('blue');
-		});
-	});
 });
