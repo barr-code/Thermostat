@@ -31,3 +31,6 @@ Run my tests.
 ```
   $ ruby thermostat.rb
 ```
+
+### Notes
+It was really interesting and cool to make JavaScript and Ruby play nice by running my Thermostat JS back end in a Ruby/Sinatra shell.
